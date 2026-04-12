@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: binjari_db
+    restart: always
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${DB_USER:-binjari}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-binjari1234!!}
+      POSTGRES_DB: ${DB_NAME:-binjari}
+      TZ: UTC
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  redis:
+    image: redis:7-alpine
+    container_name: binjari_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: binjari_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql://${DB_USER:-binjari}:${DB_PASSWORD:-binjari_secret}@db:5432/${DB_NAME:-binjari_db}
+      REDIS_URL: redis://redis:6379/0
+      TZ: UTC
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: binjari_frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      # Vite가 /api 를 백엔드로 프록시 → refresh 쿠키가 localhost:5173 쪽에 저장됨 (compose 서비스명)
+      API_PROXY_TARGET: http://backend:8000
+    depends_on:
+      - backend
+    # bind mount로 덮인 뒤에도 오래된 node_modules 볼륨이 남으면 패키지 누락이 난다. 시작 시 동기화.
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+
+volumes:
+  postgres_data:

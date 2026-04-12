@@ -1,0 +1,200 @@
+.app-shell {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-shell__header {
+  border-bottom: 1px solid var(--binjari-border);
+  background: var(--binjari-surface);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.app-shell__header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  /* LandingPage 히어로 `px-5 md:px-8` + `max-w-7xl` 과 동일 정렬 */
+  padding: 0.95rem 1.25rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media (min-width: 48rem) {
+  .app-shell__header-inner {
+    padding: 0.95rem 2rem;
+  }
+}
+
+.app-shell__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 800;
+  font-size: 1.875rem;
+  color: var(--binjari-text-heading);
+  text-decoration: none;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.app-shell__logo-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  color: var(--binjari-primary);
+}
+
+.app-shell__logo-wordmark {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.app-shell__logo:hover {
+  color: var(--binjari-primary);
+}
+
+.app-shell__logo:hover .app-shell__logo-icon {
+  color: var(--binjari-primary-hover);
+}
+
+.app-shell__nav-primary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1rem;
+  order: 3;
+  width: 100%;
+  justify-content: center;
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--binjari-border);
+}
+
+@media (min-width: 52rem) {
+  .app-shell__nav-primary {
+    order: 0;
+    width: auto;
+    flex: 1;
+    justify-content: center;
+    padding-top: 0;
+    border-top: none;
+    margin: 0 1rem;
+  }
+}
+
+.app-shell__nav-anchor {
+  color: var(--binjari-text-muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.35rem 0;
+}
+
+.app-shell__nav-anchor:hover {
+  color: var(--binjari-primary);
+}
+
+.app-shell__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.app-shell__link {
+  color: var(--binjari-text);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  padding: 0.45rem 0.65rem;
+  border-radius: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.app-shell__link:hover {
+  color: var(--binjari-primary);
+  background: var(--binjari-primary-subtle);
+}
+
+.app-shell__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #fff !important;
+  background: var(--binjari-primary);
+  border-radius: 0.625rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--binjari-shadow-btn);
+}
+
+.app-shell__btn:hover {
+  background: var(--binjari-primary-hover);
+}
+
+.app-shell__main {
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.app-shell__footer {
+  padding: 1.25rem 1.25rem 1.5rem;
+  border-top: 1px solid var(--binjari-border);
+  background: var(--binjari-surface);
+}
+
+.app-shell__footer-inner {
+  max-width: 80rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 48rem) {
+  .app-shell__footer-inner {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.app-shell__footer-brand {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--binjari-text-heading);
+}
+
+.app-shell__footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.app-shell__footer-link {
+  font-size: 0.8125rem;
+  color: var(--binjari-text-muted);
+  text-decoration: none;
+}
+
+.app-shell__footer-link:hover {
+  color: var(--binjari-primary);
+}

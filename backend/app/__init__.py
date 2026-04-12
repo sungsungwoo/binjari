@@ -1,0 +1,1 @@
+"""Binjari FastAPI application package."""

@@ -1,0 +1,167 @@
+.host-edit-layout {
+  display: grid;
+  grid-template-columns: minmax(12.5rem, 15rem) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+  padding: 0;
+  min-width: 0;
+  width: 100%;
+}
+
+@media (max-width: 52rem) {
+  .host-edit-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.host-edit-layout__sidebar {
+  position: sticky;
+  top: 1rem;
+}
+
+.host-edit-layout__sidebar-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 1.5rem;
+  padding: 1rem 1rem 1.15rem;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.host-edit-layout__nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.host-edit-layout__nav-link {
+  display: block;
+  padding: 0.5rem 0.875rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #64748b;
+  text-decoration: none;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.host-edit-layout__nav-link:hover {
+  color: var(--binjari-text-heading);
+  background: #f8fafc;
+}
+
+.host-edit-layout__nav-link--active {
+  color: #fff;
+  background: var(--binjari-primary);
+}
+
+.host-edit-layout__nav-link--active:hover {
+  color: #fff;
+  background: var(--binjari-primary-hover);
+}
+
+.host-edit-layout__main {
+  min-width: 0;
+}
+
+.host-edit-layout__toolbar {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.host-edit-layout__sidebar-nav-section .host-edit-layout__nav {
+  margin: 0;
+}
+
+/* 본문 패널: 예약 목록·대시보드의 hsd-panel 톤 */
+.host-edit-panel {
+  border: 1px solid #e2e8f0;
+  border-radius: 1.5rem;
+  padding: 1.35rem 1.5rem 1.5rem;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.host-edit-panel h1.page-shell__title {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--binjari-text-heading);
+}
+
+.host-edit-panel h2.page-shell__title {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--binjari-text-heading);
+}
+
+.host-edit-panel .page-shell__lead {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  font-size: 0.9375rem;
+  color: #64748b;
+}
+
+.host-edit-panel .page-shell__form-grid {
+  max-width: 40rem;
+  gap: 1.1rem;
+}
+
+.host-edit-panel .page-shell__field label {
+  color: #334155;
+  font-weight: 600;
+}
+
+.host-edit-panel .page-shell__field input,
+.host-edit-panel .page-shell__field select,
+.host-edit-panel .page-shell__field textarea {
+  border-radius: 1rem;
+  border-color: #e2e8f0;
+  background: #f8fafc;
+  padding: 0.55rem 0.85rem;
+}
+
+.host-edit-panel .page-shell__field input:focus,
+.host-edit-panel .page-shell__field select:focus,
+.host-edit-panel .page-shell__field textarea:focus {
+  outline: none;
+  border-color: #cbd5e1;
+  background: #fff;
+}
+
+.host-edit-panel .page-shell__btn {
+  border-radius: 1rem;
+}
+
+.host-edit-panel .page-shell__btn:not(.page-shell__btn--ghost) {
+  background: var(--binjari-primary);
+  color: #fff !important;
+  box-shadow: var(--binjari-shadow-btn);
+}
+
+.host-edit-panel .page-shell__btn:not(.page-shell__btn--ghost):hover {
+  background: var(--binjari-primary-hover);
+}
+
+.host-edit-panel .page-shell__card {
+  border-radius: 1.25rem;
+  border-color: #e2e8f0;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  margin-bottom: 0.65rem;
+}
+
+.host-edit-panel .page-shell__card-title {
+  color: var(--binjari-text-heading);
+  font-weight: 700;
+}

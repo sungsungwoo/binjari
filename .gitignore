@@ -1,0 +1,25 @@
+# Environments (비밀값 — .env.example 만 커밋)
+.env
+.env.*
+!.env.example
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+.venv
+env/
+venv/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Node
+node_modules/
+dist/
+build/
+
+# Mac/Windows
+.DS_Store
+Thumbs.db

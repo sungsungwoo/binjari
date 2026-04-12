@@ -1,0 +1,146 @@
+.hsd-back {
+  margin-bottom: 1.25rem;
+}
+
+.hsd-hero-card {
+  margin-bottom: 1.5rem;
+}
+
+.hsd-hero-card.hs-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.1);
+}
+
+.hsd-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 52rem) {
+  .hsd-metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.hsd-metric {
+  border: 1px solid #e2e8f0;
+  border-radius: 1.5rem;
+  padding: 1rem 1.15rem;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.hsd-metric__label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.hsd-metric__value {
+  margin: 0.35rem 0 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--binjari-text-heading);
+}
+
+.hsd-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 52rem) {
+  .hsd-two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hsd-panel {
+  border: 1px solid #e2e8f0;
+  border-radius: 1.5rem;
+  padding: 1.25rem;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.hsd-panel__title {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--binjari-text-heading);
+}
+
+.hsd-panel__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+  color: #334155;
+  line-height: 1.55;
+}
+
+.hsd-panel__list li + li {
+  margin-top: 0.4rem;
+}
+
+.hsd-panel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.hsd-panel__foot {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.hsd-panel__foot .page-shell__btn {
+  border-radius: 1rem;
+}
+
+.hsd-week-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  padding: 0.35rem 0;
+}
+
+.hsd-week-row + .hsd-week-row {
+  border-top: 1px solid #f1f5f9;
+}
+
+.hsd-week-row__day {
+  font-weight: 600;
+  color: var(--binjari-text-heading);
+  min-width: 1.25rem;
+}
+
+.hsd-week-row__stats {
+  color: #64748b;
+  text-align: right;
+}
+
+.hsd-insight {
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.55;
+}
+
+.hsd-insight strong {
+  color: var(--binjari-text-heading);
+  font-weight: 600;
+}
+
+.hsd-panel .page-shell__btn {
+  border-radius: 1rem;
+}

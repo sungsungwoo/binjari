@@ -1,0 +1,170 @@
+.page-shell {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3.5rem;
+}
+
+.page-shell__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--binjari-text-heading);
+}
+
+.page-shell__lead {
+  margin: 0 0 1.5rem;
+  color: var(--binjari-text-muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.page-shell__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.page-shell__link {
+  color: var(--binjari-primary);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.page-shell__link:hover {
+  text-decoration: underline;
+}
+
+.page-shell__code {
+  font-size: 0.9em;
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  background: var(--binjari-surface-muted, #f4f4f5);
+}
+
+.page-shell__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  background: var(--binjari-primary);
+  color: #fff !important;
+}
+
+.page-shell__btn:hover {
+  background: var(--binjari-primary-hover);
+}
+
+.page-shell__btn:focus-visible {
+  outline: 2px solid var(--binjari-primary-border);
+  outline-offset: 2px;
+}
+
+.page-shell__btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.page-shell__btn--ghost {
+  background: var(--binjari-surface) !important;
+  color: var(--binjari-text) !important;
+  border: 1px solid var(--binjari-border);
+}
+
+.page-shell__error {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--binjari-danger-bg);
+  border: 1px solid var(--binjari-danger-border);
+  color: var(--binjari-danger-text);
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.page-shell__notice {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--binjari-primary-subtle);
+  border: 1px solid var(--binjari-primary-border);
+  color: var(--binjari-text-heading);
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.page-shell__card {
+  background: var(--binjari-surface);
+  border: 1px solid var(--binjari-border);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.page-shell__card-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--binjari-text-heading);
+}
+
+.page-shell__muted {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--binjari-text-muted);
+}
+
+.page-shell__form-grid {
+  display: grid;
+  gap: 1rem;
+  max-width: 28rem;
+}
+
+.page-shell__field label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+  color: var(--binjari-text-heading);
+}
+
+.page-shell__field input,
+.page-shell__field select,
+.page-shell__field textarea {
+  width: 100%;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--binjari-border);
+  border-radius: 0.5rem;
+  font: inherit;
+  background: var(--binjari-surface);
+  color: var(--binjari-text);
+}
+
+.page-shell__field input[type='checkbox'],
+.page-shell__field input[type='radio'] {
+  width: auto;
+  flex-shrink: 0;
+}
+
+.page-shell__field label:has(> input[type='checkbox']),
+.page-shell__field label:has(> input[type='radio']) {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0;
+  line-height: 1.45;
+}
+
+.page-shell__field textarea {
+  min-height: 4rem;
+  resize: vertical;
+}

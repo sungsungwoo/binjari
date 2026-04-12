@@ -1,0 +1,180 @@
+@import 'tailwindcss';
+
+/* 디자인 토큰 — Calendly(https://calendly.com/) 톤 참고, 단일 소스는 :root */
+
+:root {
+  /* 브랜드 블루 (스케줄링 SaaS 계열) */
+  --binjari-primary: #006bff;
+  --binjari-primary-hover: #0052cc;
+  --binjari-primary-subtle: #e8f4ff;
+  --binjari-primary-border: #c7e0ff;
+  --binjari-accent: #3385ff;
+  --binjari-bg: #f7f9fc;
+  --binjari-surface: #ffffff;
+  --binjari-border: #e8eaed;
+  --binjari-text: #374151;
+  --binjari-text-heading: #0f1419;
+  --binjari-text-muted: #6b7280;
+  --binjari-danger-text: #b91c1c;
+  --binjari-danger-bg: #fef2f2;
+  --binjari-danger-border: #fecaca;
+
+  --binjari-shadow-primary-soft: 0 2px 8px rgb(0 107 255 / 0.22);
+  --binjari-shadow-btn: 0 1px 4px rgb(0 107 255 / 0.28);
+
+  --font-sans: 'Inter', system-ui, 'Segoe UI', 'Apple SD Gothic Neo',
+    'Malgun Gothic', sans-serif;
+
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--binjari-text);
+  background: var(--binjari-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --binjari-primary: #4d9fff;
+    --binjari-primary-hover: #7ab8ff;
+    --binjari-primary-subtle: rgb(0 107 255 / 0.16);
+    --binjari-primary-border: rgb(77 159 255 / 0.35);
+    --binjari-accent: #7ab8ff;
+    --binjari-bg: #0f1419;
+    --binjari-surface: #1a1f26;
+    --binjari-border: #2d3340;
+    --binjari-text: #e5e7eb;
+    --binjari-text-heading: #f9fafb;
+    --binjari-text-muted: #9ca3af;
+    --binjari-danger-text: #fca5a5;
+    --binjari-danger-bg: rgba(127, 29, 29, 0.35);
+    --binjari-danger-border: #7f1d1d;
+
+    --binjari-shadow-primary-soft: 0 2px 8px rgb(0 0 0 / 0.35);
+    --binjari-shadow-btn: 0 1px 4px rgb(0 0 0 / 0.35);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* 스크롤바 유무로 뷰포트 너비가 바뀌며 전체 레이아웃이 옆으로 흔들리는 현상 방지 */
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+/* 기본 링크는 부모 색 상속. 프라이머리 버튼 링크는 아래 전용 규칙이 색을 둠 */
+a:not(
+    :where(
+      .binjari-btn-solid,
+      .binjari-btn-on-brand,
+      .app-shell__btn,
+      .page-shell__btn
+    )
+  ) {
+  color: inherit;
+}
+
+/* Tailwind `text-white` 링크가 상속색에 밀리지 않도록 */
+a.text-white,
+a.text-white:visited {
+  color: #fff !important;
+}
+
+/* 슬롯·캘린더 점 등 — TS에서 문자열로 붙이는 브랜드 색 (Tailwind purge 대비) */
+.binjari-ui-dot-open {
+  background-color: var(--binjari-primary);
+}
+
+/**
+ * 주요 솔리드 버튼 — 예전 bg-slate-900 대신 브랜드 프라이머리
+ * (page-shell__btn, AppShell__btn와 동일 토큰)
+ */
+.binjari-btn-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  background-color: var(--binjari-primary);
+  color: #fff !important;
+  font-weight: 600;
+  font-family: inherit;
+  line-height: 1.25;
+  box-shadow: var(--binjari-shadow-btn);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.binjari-btn-solid:hover:not(:disabled) {
+  background-color: var(--binjari-primary-hover);
+}
+
+.binjari-btn-solid:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.binjari-btn-solid:focus-visible {
+  outline: 2px solid var(--binjari-primary-border);
+  outline-offset: 2px;
+}
+
+a.binjari-btn-solid,
+a.binjari-btn-solid:visited {
+  color: #fff !important;
+}
+
+button.binjari-btn-solid {
+  color: #fff !important;
+}
+
+/** 진한 브랜드 배경 위 보조 CTA (흰 배경 + 진한 글자) */
+.binjari-btn-on-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: var(--binjari-primary-hover);
+  font-weight: 600;
+  font-family: inherit;
+  line-height: 1.25;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 0.12);
+  transition: background-color 0.15s ease;
+}
+
+.binjari-btn-on-brand:hover {
+  background: #f1f5f9;
+}
+
+.binjari-btn-on-brand:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+a.binjari-btn-on-brand,
+a.binjari-btn-on-brand:visited {
+  color: var(--binjari-primary-hover);
+}
