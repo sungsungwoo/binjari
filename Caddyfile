@@ -2,22 +2,31 @@
 # 아래 your-domain.com 을 실제 도메인으로 바꾸세요.
 # DNS A 레코드가 이 EC2 인스턴스를 가리켜야 HTTPS가 자동 발급됩니다.
 
-#your-domain.com, www.your-domain.com {
-#   encode gzip zstd
-#
-#    @api path /api/*
-#    reverse_proxy @api backend:8000
-#
-#    reverse_proxy frontend:80
-#}
+www.binjari.shop, portfolio.binjari.shop {
+   encode gzip zstd
 
-# ===== 도메인 연결 전, IP로 임시 확인하고 싶을 때 =====
-# 아래 블록의 주석을 해제하고 위 도메인 블록은 잠시 주석 처리해서 사용하세요.
-:80 {
+    @api path /api/*
+    reverse_proxy @api backend:8000
+
+    reverse_proxy frontend:80
+}
+
+http://43.201.105.93 {
     encode gzip zstd
 
     @api path /api/*
     reverse_proxy @api backend:8000
 
-     reverse_proxy frontend:80
+    reverse_proxy frontend:80
 }
+
+# ===== 도메인 연결 전, IP로 임시 확인하고 싶을 때 =====
+# 아래 블록의 주석을 해제하고 위 도메인 블록은 잠시 주석 처리해서 사용하세요.
+#:80 {
+#    encode gzip zstd
+#
+#    @api path /api/*
+#    reverse_proxy @api backend:8000
+#
+#     reverse_proxy frontend:80
+#}
