@@ -28,6 +28,7 @@ const MARKETPLACE_UNCATEGORIZED = '__uncategorized__'
 type FlowMode = 'host' | 'booker'
 
 type MarketplaceItem = {
+  id: string
   slug: string
   title: string
   description: string | null
@@ -730,14 +731,14 @@ export function LandingPage() {
                 c.description?.trim() || '설명이 등록되지 않았습니다.'
               const publicUrl = `/book/${c.slug}`
               const coverSrc = resolveBookingCoverUrl({
-                id: c.slug,
+                id: c.id,
                 slug: c.slug,
               })
               return (
-                <article key={c.slug} className="hs-card">
+                <article key={c.id} className="hs-card">
                   <div className="hs-card__hero">
                     <BookingPageCoverHero
-                      seed={c.slug}
+                      seed={c.id + c.slug}
                       imageUrl={coverSrc}
                     />
                     <div className="hs-card__hero-overlay" aria-hidden />

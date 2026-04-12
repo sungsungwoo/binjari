@@ -68,6 +68,7 @@ async def list_marketplace_booking_pages(
     )
     items = [
         MarketplaceBookingPageItem(
+            id=x.id,
             slug=x.slug,
             title=x.title,
             description=x.description,

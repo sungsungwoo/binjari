@@ -84,7 +84,8 @@ class Settings(BaseSettings):
         "http://127.0.0.1:5173,"
         "http://43.201.105.93,"
         "http://43.201.105.93:5173,"
-        "https://binjari.com"
+        "https://www.binjari.shop,"
+        "https://portfolio.binjari.shop"
     )
 
     cors_origins: str = Field(

@@ -103,6 +103,7 @@ class HostSettingListedToggleRequest(BaseModel):
 class MarketplaceBookingPageItem(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
+    id: UUID
     slug: str
     title: str
     description: str | None = None
