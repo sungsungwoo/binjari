@@ -5,8 +5,8 @@
 
 | 환경 | URL (예시) |
 |------|------------|
-| 운영 | https://www.binjari.shop |
-| 포트폴리오 | https://portfolio.binjari.shop |
+| 운영 | https://binjari.swsung72.site |
+| 포트폴리오 | https://resume.swsung72.site/projects.html |
 
 ---
 
@@ -18,6 +18,16 @@
 - **시스템**: PostgreSQL 트랜잭션 기반 예약 무결성, Redis Hold·Idempotency-Key, UTC 저장 + 호스트 타임존 정책
 
 상세 요구사항은 [`docs/PRD.md`](docs/PRD.md), 화면 구조는 [`docs/IA.md`](docs/IA.md)를 참고하세요.
+
+---
+
+## 핵심 구현 포인트
+
+- PostgreSQL 트랜잭션과 제약 조건을 이용한 예약 중복 방지
+- Redis Hold를 통한 임시 선점 처리
+- Idempotency-Key 기반 중복 요청 방지
+- UTC 저장 및 호스트 타임존 기준 예약 표시
+- WebSocket 기반 예약 상태 실시간 알림
 
 ---
 
@@ -58,7 +68,7 @@ binjari/
 ### 1. 저장소 클론
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/sungsungwoo/binjari.git
 cd binjari
 ```
 
@@ -74,8 +84,8 @@ DB_NAME=binjari
 
 # --- 백엔드 (backend/app/core/config.py) ---
 BINJARI_ENV=development
-DATABASE_URL=postgresql+psycopg2://binjari:your-local-password@db:5432/binjari
-REDIS_URL=redis://redis:6379/0
+DATABASE_URL=postgresql+psycopg2://binjari:your-local-password@localhost:5432/binjari
+REDIS_URL=redis://localhost:6379/0
 SECRET_KEY=dev-secret-change-in-production-min-32-chars!!
 
 # --- 선택: Google OAuth ---
@@ -261,4 +271,4 @@ npm run dev
 
 ## 라이선스
 
-이 저장소에 별도 라이선스 파일이 없습니다. 사용·배포 전 저장소 소유자의 라이선스 정책을 확인하세요.
+이 저장소는 포트폴리오 공개를 목적으로 제공되며, 무단 사용·복제·배포를 허용하지 않습니다.
