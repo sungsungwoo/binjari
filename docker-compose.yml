@@ -4,7 +4,8 @@ services:
   db:
     image: postgres:15-alpine
     container_name: binjari_db
-    restart: always
+    #restart: always
+    restart: no
     env_file:
       - .env
     environment:
@@ -26,7 +27,8 @@ services:
   redis:
     image: redis:7-alpine
     container_name: binjari_redis
-    restart: always
+    #restart: always
+    restart: no
     ports:
       - "6379:6379"
     healthcheck:
